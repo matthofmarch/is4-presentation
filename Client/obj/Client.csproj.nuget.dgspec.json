@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\Client\\Client.csproj": {}
+    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\Client\\Client.csproj": {
+    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\Client\\Client.csproj",
+        "projectPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\Client\\Client.csproj",
         "packagesPath": "C:\\Users\\hofma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\Client\\obj\\",
+        "outputPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

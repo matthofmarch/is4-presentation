@@ -1,8 +1,4 @@
-﻿using IdentityModel.OidcClient.Browser;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -10,12 +6,15 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using IdentityModel.OidcClient.Browser;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace ConsoleClientWithBrowser
 {
     public class SystemBrowser : IBrowser
     {
-        public int Port { get; }
         private readonly string _path;
 
         public SystemBrowser(int? port = null, string path = null)
@@ -23,23 +22,12 @@ namespace ConsoleClientWithBrowser
             _path = path;
 
             if (!port.HasValue)
-            {
                 Port = GetRandomUnusedPort();
-            }
             else
-            {
                 Port = port.Value;
-            }
         }
 
-        private int GetRandomUnusedPort()
-        {
-            var listener = new TcpListener(IPAddress.Loopback, 0);
-            listener.Start();
-            var port = ((IPEndPoint)listener.LocalEndpoint).Port;
-            listener.Stop();
-            return port;
-        }
+        public int Port { get; }
 
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
@@ -50,22 +38,30 @@ namespace ConsoleClientWithBrowser
                 try
                 {
                     var result = await listener.WaitForCallbackAsync();
-                    if (String.IsNullOrWhiteSpace(result))
-                    {
-                        return new BrowserResult { ResultType = BrowserResultType.UnknownError, Error = "Empty response." };
-                    }
+                    if (string.IsNullOrWhiteSpace(result))
+                        return new BrowserResult
+                            {ResultType = BrowserResultType.UnknownError, Error = "Empty response."};
 
-                    return new BrowserResult { Response = result, ResultType = BrowserResultType.Success };
+                    return new BrowserResult {Response = result, ResultType = BrowserResultType.Success};
                 }
                 catch (TaskCanceledException ex)
                 {
-                    return new BrowserResult { ResultType = BrowserResultType.Timeout, Error = ex.Message };
+                    return new BrowserResult {ResultType = BrowserResultType.Timeout, Error = ex.Message};
                 }
                 catch (Exception ex)
                 {
-                    return new BrowserResult { ResultType = BrowserResultType.UnknownError, Error = ex.Message };
+                    return new BrowserResult {ResultType = BrowserResultType.UnknownError, Error = ex.Message};
                 }
             }
+        }
+
+        private int GetRandomUnusedPort()
+        {
+            var listener = new TcpListener(IPAddress.Loopback, 0);
+            listener.Start();
+            var port = ((IPEndPoint) listener.LocalEndpoint).Port;
+            listener.Stop();
+            return port;
         }
 
         public static void OpenBrowser(string url)
@@ -80,7 +76,7 @@ namespace ConsoleClientWithBrowser
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
                     url = url.Replace("&", "^&");
-                    Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") {CreateNoWindow = true});
                 }
                 else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                 {
@@ -100,28 +96,27 @@ namespace ConsoleClientWithBrowser
 
     public class LoopbackHttpListener : IDisposable
     {
-        const int DefaultTimeout = 60 * 5; // 5 mins (in seconds)
+        private const int DefaultTimeout = 60 * 5; // 5 mins (in seconds)
 
-        IWebHost _host;
-        TaskCompletionSource<string> _source = new TaskCompletionSource<string>();
-        string _url;
-
-        public string Url => _url;
+        private readonly IWebHost _host;
+        private readonly TaskCompletionSource<string> _source = new();
 
         public LoopbackHttpListener(int port, string path = null)
         {
-            path = path ?? String.Empty;
+            path = path ?? string.Empty;
             if (path.StartsWith("/")) path = path.Substring(1);
 
-            _url = $"http://127.0.0.1:{port}/{path}";
+            Url = $"http://127.0.0.1:{port}/{path}";
 
             _host = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls(_url)
+                .UseUrls(Url)
                 .Configure(Configure)
                 .Build();
             _host.Start();
         }
+
+        public string Url { get; }
 
         public void Dispose()
         {
@@ -132,32 +127,30 @@ namespace ConsoleClientWithBrowser
             });
         }
 
-        void Configure(IApplicationBuilder app)
+        private void Configure(IApplicationBuilder app)
         {
             app.Run(async ctx =>
             {
-                if (ctx.Request.Method == "GET")
+                switch (ctx.Request.Method)
                 {
-                    SetResult(ctx.Request.QueryString.Value, ctx);
-                }
-                else if (ctx.Request.Method == "POST")
-                {
-                    if (!ctx.Request.ContentType.Equals("application/x-www-form-urlencoded", StringComparison.OrdinalIgnoreCase))
-                    {
+                    case "GET":
+                        SetResult(ctx.Request.QueryString.Value, ctx);
+                        break;
+                    case "POST" when !ctx.Request.ContentType.Equals("application/x-www-form-urlencoded",
+                        StringComparison.OrdinalIgnoreCase):
                         ctx.Response.StatusCode = 415;
-                    }
-                    else
+                        break;
+                    case "POST":
                     {
-                        using (var sr = new StreamReader(ctx.Request.Body, Encoding.UTF8))
-                        {
-                            var body = await sr.ReadToEndAsync();
-                            SetResult(body, ctx);
-                        }
+                        using var sr = new StreamReader(ctx.Request.Body, Encoding.UTF8);
+                        var body = await sr.ReadToEndAsync();
+                        SetResult(body, ctx);
+
+                        break;
                     }
-                }
-                else
-                {
-                    ctx.Response.StatusCode = 405;
+                    default:
+                        ctx.Response.StatusCode = 405;
+                        break;
                 }
             });
         }

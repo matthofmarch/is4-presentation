@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xo0KKk5rcbNTtWVwsO4UbwZJNMbHev0Klzj07+Ur4wyEbVlFElUMBo+KJI3j8rOXFBfYRRvyZkSHZvtIt6J/mA==",
+  "dgSpecHash": "TI7VvMpYlFSPa3KRfhI8m/1RiRhf1PnDSEVE4Vy9q++x0jYso5rhnaoB0VNrWlhnZzpGeY5K1uZxU7AoLjs1+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hofma\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
     "C:\\Users\\hofma\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.1\\microsoft.aspnetcore.authentication.openidconnect.5.0.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\API\\API.csproj": {}
+    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\API\\API.csproj": {
+    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\API\\API.csproj",
+        "projectPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\API\\API.csproj",
         "packagesPath": "C:\\Users\\hofma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\API\\obj\\",
+        "outputPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

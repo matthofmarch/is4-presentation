@@ -1,20 +1,22 @@
-﻿using IdentityModel.OidcClient;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using IdentityModel.OidcClient;
+using Newtonsoft.Json.Linq;
 
 namespace ConsoleClientWithBrowser
 {
-    public class Program
+    public static class Program
     {
-        const string Authority = "https://localhost:5001";
-        const string Api = "https://localhost:443/api";
+        private const string Authority = "https://localhost:5001";
+        private const string Api = "https://localhost:5002/WeatherForecast";
 
-        static OidcClient _oidcClient;
-        static HttpClient _apiClient = new HttpClient { BaseAddress = new Uri(Api) };
+        private static OidcClient _oidcClient;
 
-        public static void Main() => MainAsync().GetAwaiter().GetResult();
+        public static void Main()
+        {
+            MainAsync().GetAwaiter().GetResult();
+        }
 
         public static async Task MainAsync()
         {
@@ -31,8 +33,8 @@ namespace ConsoleClientWithBrowser
         private static async Task Login()
         {
             var port = 6655;
-            var browser = new SystemBrowser(port: port);
-            string redirectUri = string.Format($"http://localhost:{port}/");
+            var browser = new SystemBrowser(port);
+            var redirectUri = string.Format($"http://localhost:{port}/");
 
             var options = new OidcClientOptions
             {
@@ -50,10 +52,7 @@ namespace ConsoleClientWithBrowser
             var result = await _oidcClient.LoginAsync(new LoginRequest());
 
             Console.WriteLine("\n\nClaims:");
-            foreach (var claim in result.User.Claims)
-            {
-                Console.WriteLine("{0}: {1}", claim.Type, claim.Value);
-            }
+            foreach (var claim in result.User.Claims) Console.WriteLine("{0}: {1}", claim.Type, claim.Value);
 
             Console.WriteLine();
             Console.WriteLine($"id token: {result.IdentityToken}");
@@ -67,8 +66,10 @@ namespace ConsoleClientWithBrowser
 
         private static async Task CallApi(string currentAccessToken)
         {
-            _apiClient.SetBearerToken(currentAccessToken);
-            var response = await _apiClient.GetAsync("WeatherForecast");
+            var apiClient = new HttpClient {BaseAddress = new Uri(Api)};
+            apiClient.SetBearerToken(currentAccessToken);
+
+            var response = await apiClient.GetAsync("WeatherForecast");
 
             if (response.IsSuccessStatusCode)
             {

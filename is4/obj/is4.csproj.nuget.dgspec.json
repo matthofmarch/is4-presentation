@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\is4\\is4.csproj": {}
+    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\is4\\is4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\is4\\is4.csproj": {
+    "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\is4\\is4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\is4\\is4.csproj",
+        "projectUniqueName": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\is4\\is4.csproj",
         "projectName": "is4",
-        "projectPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\is4\\is4.csproj",
+        "projectPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\is4\\is4.csproj",
         "packagesPath": "C:\\Users\\hofma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\is4\\obj\\",
+        "outputPath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\is4\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4.Models;
 using System.Collections.Generic;
+using IdentityServer4.Models;
 
 namespace is4
 {
@@ -13,18 +13,18 @@ namespace is4
             new IdentityResource[]
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
+                new IdentityResources.Profile()
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
-            new ApiScope[]
+            new[]
             {
                 new ApiScope("scope1"),
-                new ApiScope("scope2"),
+                new ApiScope("scope2")
             };
 
         public static IEnumerable<Client> Clients =>
-            new Client[]
+            new[]
             {
                 // m2m client credentials flow client
                 new Client
@@ -33,38 +33,38 @@ namespace is4
                     ClientName = "Client Credentials Client",
 
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
+                    ClientSecrets = {new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256())},
 
-                    AllowedScopes = { "scope1" }
+                    AllowedScopes = {"scope1"}
                 },
 
                 // interactive client using code flow + pkce
                 new Client
                 {
                     ClientId = "interactive",
-                    ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
+                    ClientSecrets = {new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256())},
 
                     AllowedGrantTypes = GrantTypes.Code,
 
-                    RedirectUris = { "https://localhost:44300/signin-oidc" },
+                    RedirectUris = {"https://localhost:44300/signin-oidc"},
                     FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
-                    PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
+                    PostLogoutRedirectUris = {"https://localhost:44300/signout-callback-oidc"},
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "scope2" }
+                    AllowedScopes = {"openid", "profile", "scope2"}
                 },
                 new Client
                 {
                     ClientId = "interactive.public",
                     AllowedGrantTypes = GrantTypes.Code,
                     RequireClientSecret = false,
-                    RedirectUris = { "http://localhost:6655/" },
+                    RedirectUris = {"http://localhost:6655/"},
                     AllowedCorsOrigins = {"http://localhost:6655"},
                     AllowOfflineAccess = true,
                     RequirePkce = true,
-                    AllowedScopes = { "openid", "profile" },
-                    RequireConsent = true,
-                },
+                    AllowedScopes = {"openid", "profile"},
+                    RequireConsent = true
+                }
             };
     }
 }

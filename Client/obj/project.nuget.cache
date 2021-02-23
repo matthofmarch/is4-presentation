@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JjPUbALr4fu6c8c3Gwy0IxWBdTcnkfpsE7JzmxZZY7TlzLti6WCaAg98zW5BE04SE//BlIjTiCUyPMnVhvcdWg==",
+  "dgSpecHash": "dD1T3FIHhsbsTZsHSxwvFZkLrmKjBt3k1dgwxu1BRL4Nl35MeeF4qzD4AlP+kP/IkmZJIt4SQT/l2Y9FMjw81g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\Client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hofma\\.nuget\\packages\\identitymodel\\3.5.0\\identitymodel.3.5.0.nupkg.sha512",
     "C:\\Users\\hofma\\.nuget\\packages\\identitymodel.oidcclient\\2.6.0\\identitymodel.oidcclient.2.6.0.nupkg.sha512",

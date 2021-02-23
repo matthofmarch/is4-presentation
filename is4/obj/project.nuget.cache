@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A71o/pq38DcyZf+zuY1wQJpviUAORHudHkV25scNgtY3HhjhSAXY2ixWhqKgo6+ML0KSmb7/hd8qiIWzkk0KgQ==",
+  "dgSpecHash": "Y5oRl0VoYOEh2sAz2fJTMCXzH/VfuOHP7Xmu4UqPZbLxmLozmvcOPiHPxPkUi2xWjJG+PILEcBqx9QfIkI4YVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation\\is4\\is4.csproj",
+  "projectFilePath": "C:\\Users\\hofma\\HTL\\2021\\2021-pos-root\\is4-presentation - Copy\\is4\\is4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hofma\\.nuget\\packages\\identitymodel\\4.3.0\\identitymodel.4.3.0.nupkg.sha512",
     "C:\\Users\\hofma\\.nuget\\packages\\identityserver4\\4.0.0\\identityserver4.4.0.0.nupkg.sha512",
